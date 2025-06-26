@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f9f9f9;
+}
+
+.container {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.menu-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.menu-bar button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.editor-content {
+  padding: 1rem 0.5rem;
+  line-height: 1.7;
+  font-size: 1rem;
+  min-height: 300px;
+  outline: none;
+}
+
+h1, h2, h3 {
+  margin: 1.2rem 0 0.6rem;
+  font-weight: 600;
+}
+
+blockquote {
+  border-left: 4px solid #ccc;
+  padding-left: 1rem;
+  color: #666;
+  font-style: italic;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.editor-placeholder-wrapper {
+  position: relative;
+}
+
+.placeholder {
+   position: absolute;
+  top: 1rem;
+  left: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #999;
+  pointer-events: none;
+  user-select: none;
+}
+.placeholder {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+.editor-content:focus + .placeholder {
+  opacity: 0;
+}
+.placeholder {
+  transform: translateY(2px);
+}
+.editor-content > div {
+  margin: 0;
+  padding: 0;
+}
+.editor-content {
+  font-family: Inter, sans-serif;
+}
+
+
+.editor-content span[style*='font-family'] {
+  all: unset;
+  font-family: inherit !important;
+}
+.editor-content [style*='font-family'] {
+  all: unset;
+  font-family: inherit !important;
+}

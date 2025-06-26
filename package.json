@@ -1,27 +1,38 @@
 {
-  "name": "tiptap-notion-editor",
-  "version": "0.1.0",
+  "name": "notion-editor",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.3.4"
+    "@tiptap/core": "^2.2.2",
+    "@tiptap/extension-color": "^2.2.2",
+    "@tiptap/extension-font-family": "^2.22.3",
+    "@tiptap/extension-heading": "^2.2.2",
+    "@tiptap/extension-highlight": "^2.2.2",
+    "@tiptap/extension-placeholder": "^2.2.2",
+    "@tiptap/extension-task-item": "^2.22.3",
+    "@tiptap/extension-task-list": "^2.22.3",
+    "@tiptap/extension-text-align": "^2.2.2",
+    "@tiptap/extension-underline": "^2.2.2",
+    "@tiptap/react": "^2.2.2",
+    "@tiptap/starter-kit": "^2.2.2",
+    "@tiptap/suggestion": "^2.2.2",
+    "lucide-react": "^0.263.0",
+    "next": "^14.2.30",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
-    "eslint": "^9",
-    "eslint-config-next": "15.3.4",
-    "@eslint/eslintrc": "^3"
+    "@types/node": "^20.11.10",
+    "@types/react": "^18.2.54",
+    "@types/react-dom": "^18.2.21",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.1.0",
+    "typescript": "^5.4.5"
   }
 }
