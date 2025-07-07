@@ -83,15 +83,39 @@ export const MenuBar = ({ editor }: { editor: Editor }) => {
 
 
 <select
+  value=""
   onChange={(e) => {
     const font = e.target.value
     editor.chain().focus().setFontFamily(font).run()
   }}
 >
-  <option value="'Bebas Neue'">Bebas Neue (Display)</option>
-  <option value="'Pacifico'">Pacifico (Handwriting)</option>
-  <option value="'Fira Mono'">Fira Mono (Monospace)</option>
+  <option value="" disabled>Select Font</option>
+
+  <option value="Inter" style={{ fontFamily: 'Inter' }}>
+    Inter
+  </option>
+  <option value='"Comic Sans MS", "Comic Sans"'
+    style={{ fontFamily: '"Comic Sans MS", "Comic Sans"' }}>
+    Comic Sans
+  </option>
+  <option value="serif" style={{ fontFamily: 'serif' }}>
+    Serif
+  </option>
+  <option value="monospace" style={{ fontFamily: 'monospace' }}>
+    Monospace
+  </option>
+  <option value="cursive" style={{ fontFamily: 'cursive' }}>
+    Cursive
+  </option>
+  <option value="var(--title-font-family)"
+    style={{ fontFamily: 'var(--title-font-family)' }}>
+    CSS Variable Font
+  </option>
+  <option value= "Exo 2" style={{ fontFamily: 'Exo 2' }}>
+    Exo 2
+  </option>
 </select>
+
 
 
     </div>

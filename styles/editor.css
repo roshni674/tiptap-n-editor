@@ -89,13 +89,3 @@ blockquote {
 .editor-content {
   font-family: Inter, sans-serif;
 }
-
-
-.editor-content span[style*='font-family'] {
-  all: unset;
-  font-family: inherit !important;
-}
-.editor-content [style*='font-family'] {
-  all: unset;
-  font-family: inherit !important;
-}

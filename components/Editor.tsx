@@ -10,15 +10,17 @@ import Heading from '@tiptap/extension-heading'
 
 import FontFamily from '@tiptap/extension-font-family'
 
+
 export default function Editor() {
+  
   const editor = useEditor({
     extensions: [
        StarterKit.configure({ heading: { levels: [1, 2, 3] } }),
   Heading.configure({ levels: [1, 2, 3] }),
+   TextStyle,
    FontFamily.configure({
     types: ['textStyle'],
   }),
-      TextStyle,
       Color,
       Highlight,
       TaskList.configure({ HTMLAttributes: { class: 'task-list' } }),
@@ -26,7 +28,7 @@ export default function Editor() {
     ],
     
   })
-
+  
   return (
     <div className="editor-wrapper">
   {editor && <MenuBar editor={editor} />}
