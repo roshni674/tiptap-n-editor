@@ -13,6 +13,25 @@ body {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
 }
 
+.title-input {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;           /* Rounded corners */
+  font-size: 1rem;
+  width: 30%;
+  box-sizing: border-box;
+    margin-bottom: 0.5rem; /* Adds space below the input */
+  margin-top: 1rem; /* Adds space below the input */
+
+  transition: border 0.2s ease, background-color 0.2s ease;
+}
+
+.title-input:focus {
+  outline: none;
+  border-color: #999;            /* Slightly darker on focus */
+  background-color: #fff;        /* Optional: white on focus */
+}
+
 .menu-bar {
   display: flex;
   flex-wrap: wrap;
@@ -88,4 +107,23 @@ blockquote {
 }
 .editor-content {
   font-family: Inter, sans-serif;
+}
+.save-button {
+  background-color: #000;       /* Black background */
+  color: #fff;                  /* White text */
+  padding: 0.5rem 1rem;         /* Spacing inside button */
+  border: none;
+  border-radius: 6px;           /* Slightly rounded corners */
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.save-button:hover {
+  background-color: #333;       /* Slightly lighter black on hover */
+}
+
+.save-button:disabled {
+  background-color: #888;       /* Grey background when disabled */
+  cursor: not-allowed;
 }

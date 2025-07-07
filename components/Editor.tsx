@@ -68,13 +68,14 @@ export default function Editor() {
   return (
     <div className="editor-wrapper">
 
-        <input
-        type="text"
-        placeholder="Enter title..."
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        className="title-input"
-      />
+<input
+  type="text"
+  placeholder="Enter title..."
+  value={title}
+  onChange={(e) => setTitle(e.target.value)}
+  className="title-input"
+/>
+
   {editor && <MenuBar editor={editor} />}
   <div className="editor-placeholder-wrapper">
     <EditorContent editor={editor} className="editor-content" />
@@ -82,13 +83,14 @@ export default function Editor() {
       <div className="placeholder">Write something…</div>
     )}
   </div>
-        <button
-        onClick={handleSave}
-        disabled={!editor || saving}
-        className="save-button"
-      >
-        {saving ? 'Saving...' : 'Save'}
-      </button>
+<button
+  onClick={handleSave}
+  disabled={!editor || saving}
+  className="save-button"
+>
+  {saving ? 'Saving...' : 'Save'}
+</button>
+
 </div>
   )
 }
