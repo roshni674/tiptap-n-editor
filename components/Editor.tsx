@@ -5,6 +5,7 @@ import Color from '@tiptap/extension-color'
 import Highlight from '@tiptap/extension-highlight'
 import TaskList from '@tiptap/extension-task-list'
 import TaskItem from '@tiptap/extension-task-item'
+import HardBreak from '@tiptap/extension-hard-break'
 import { MenuBar } from './MenuBar'
 import Heading from '@tiptap/extension-heading'
 import FontFamily from '@tiptap/extension-font-family'
@@ -19,6 +20,9 @@ export default function Editor() {
       StarterKit.configure({ heading: { levels: [1, 2, 3] } }),
       Heading.configure({ levels: [1, 2, 3] }),
       TextStyle,
+      HardBreak.configure({
+        keepMarks: true,
+      }),
       FontFamily.configure({
         types: ['textStyle'],
       }),
