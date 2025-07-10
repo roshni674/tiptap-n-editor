@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Editor } from '@tiptap/react'
 import {
   Bold,
@@ -8,11 +9,19 @@ import {
   Code,
   Quote,
   Paintbrush,
-  CheckSquare
+  CheckSquare,
 } from 'lucide-react'
 
 export const MenuBar = ({ editor }: { editor: Editor }) => {
+  const [selectedFont, setSelectedFont] = useState('') // Add font state
+
   if (!editor) return null
+
+  const handleFontChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const font = e.target.value
+    setSelectedFont(font)
+    editor.chain().focus().setFontFamily(font).run()
+  }
 
   return (
     <div className="menu-bar">
@@ -40,26 +49,27 @@ export const MenuBar = ({ editor }: { editor: Editor }) => {
       <button onClick={() => editor.chain().focus().toggleTaskList().run()}>
         <CheckSquare size={16} />
       </button>
+
       <input
         type="color"
         onChange={(e) =>
           editor.chain().focus().setColor(e.target.value).run()
         }
       />
-     <button
-  onClick={() => {
-    const isActive = editor.isActive('highlight', { color: '#fffb91' })
 
-    editor
-      .chain()
-      .focus()
-      .setHighlight(isActive ? undefined : { color: '#fffb91' })
-      .run()
-  }}
->
-  <Paintbrush size={16} />
-</button>
+      <button
+        onClick={() => {
+          const isActive = editor.isActive('highlight', { color: '#fffb91' })
 
+          editor
+            .chain()
+            .focus()
+            .setHighlight(isActive ? undefined : { color: '#fffb91' })
+            .run()
+        }}
+      >
+        <Paintbrush size={16} />
+      </button>
 
       <select
         defaultValue="paragraph"
@@ -70,54 +80,57 @@ export const MenuBar = ({ editor }: { editor: Editor }) => {
           } else {
             const level = parseInt(val, 10)
             if ([1, 2, 3].includes(level)) {
-              editor.chain().focus().toggleHeading({ level: level as 1 | 2 | 3 }).run()
+              editor
+                .chain()
+                .focus()
+                .toggleHeading({ level: level as 1 | 2 | 3 })
+                .run()
             }
           }
         }}
       >
-  <option value="paragraph">Text Size</option>
-  <option value="1">Heading 1</option>
-  <option value="2">Heading 2</option>
-  <option value="3">Heading 3</option>
-</select>
+        <option value="paragraph">Text Size</option>
+        <option value="1">Heading 1</option>
+        <option value="2">Heading 2</option>
+        <option value="3">Heading 3</option>
+      </select>
 
-
-<select
-  value=""
-  onChange={(e) => {
-    const font = e.target.value
-    editor.chain().focus().setFontFamily(font).run()
-  }}
->
-  <option value="" disabled>Select Font</option>
-
-  <option value="Inter" style={{ fontFamily: 'Inter' }}>
-    Inter
-  </option>
-  <option value='"Comic Sans MS", "Comic Sans"'
-    style={{ fontFamily: '"Comic Sans MS", "Comic Sans"' }}>
-    Comic Sans
-  </option>
-  <option value="serif" style={{ fontFamily: 'serif' }}>
-    Serif
-  </option>
-  <option value="monospace" style={{ fontFamily: 'monospace' }}>
-    Monospace
-  </option>
-  <option value="cursive" style={{ fontFamily: 'cursive' }}>
-    Cursive
-  </option>
-  <option value="var(--title-font-family)"
-    style={{ fontFamily: 'var(--title-font-family)' }}>
-    CSS Variable Font
-  </option>
-  <option value= "Exo 2" style={{ fontFamily: 'Exo 2' }}>
-    Exo 2
-  </option>
-</select>
-
-
-
+      <select
+        value={selectedFont}
+        onChange={handleFontChange}
+        style={{ fontFamily: selectedFont || 'inherit' }}
+      >
+        <option value="" disabled>
+          Select Font
+        </option>
+        <option value="Inter" style={{ fontFamily: 'Inter' }}>
+          Inter
+        </option>
+        <option
+          value='"Comic Sans MS", "Comic Sans"'
+          style={{ fontFamily: '"Comic Sans MS", "Comic Sans"' }}
+        >
+          Comic Sans
+        </option>
+        <option value="serif" style={{ fontFamily: 'serif' }}>
+          Serif
+        </option>
+        <option value="monospace" style={{ fontFamily: 'monospace' }}>
+          Monospace
+        </option>
+        <option value="cursive" style={{ fontFamily: 'cursive' }}>
+          Cursive
+        </option>
+        <option
+          value="var(--title-font-family)"
+          style={{ fontFamily: 'var(--title-font-family)' }}
+        >
+          CSS Variable Font
+        </option>
+        <option value="Exo 2" style={{ fontFamily: 'Exo 2' }}>
+          Exo 2
+        </option>
+      </select>
     </div>
   )
 }
