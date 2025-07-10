@@ -95,9 +95,11 @@ blockquote {
   opacity: 0.6;
   transition: opacity 0.3s ease;
 }
-.editor-content:focus + .placeholder {
-  opacity: 0;
+.editor-content *:focus {
+  outline: none !important;        /* removes black box */
+  box-shadow: none !important;     /* removes any default shadows */
 }
+
 .placeholder {
   transform: translateY(2px);
 }
