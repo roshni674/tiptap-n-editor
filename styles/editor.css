@@ -129,3 +129,39 @@ blockquote {
   background-color: #888;       /* Grey background when disabled */
   cursor: not-allowed;
 }
+.bold-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 6px;
+  transition: background-color 0.2s ease;
+  color: #333;
+}
+
+.bold-button:hover {
+  background-color: #efefef;
+}
+
+.bold-button.active {
+  background-color: #e0e0e0; /* Slight dim for active */
+  color: #111;
+}
+.format-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  color: #333;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.format-button:hover {
+  background-color: #efefef;
+}
+
+.format-button.active {
+  background-color: #e0e0e0;
+  color: #111;
+}

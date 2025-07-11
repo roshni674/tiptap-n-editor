@@ -25,30 +25,58 @@ export const MenuBar = ({ editor }: { editor: Editor }) => {
 
   return (
     <div className="menu-bar">
-      <button onClick={() => editor.chain().focus().toggleBold().run()}>
-        <Bold size={16} />
-      </button>
-      <button onClick={() => editor.chain().focus().toggleItalic().run()}>
-        <Italic size={16} />
-      </button>
-      <button onClick={() => editor.chain().focus().toggleStrike().run()}>
-        <Strikethrough size={16} />
-      </button>
-      <button onClick={() => editor.chain().focus().toggleBulletList().run()}>
-        <List size={16} />
-      </button>
-      <button onClick={() => editor.chain().focus().toggleOrderedList().run()}>
-        <ListOrdered size={16} />
-      </button>
-      <button onClick={() => editor.chain().focus().toggleBlockquote().run()}>
-        <Quote size={16} />
-      </button>
-      <button onClick={() => editor.chain().focus().toggleCodeBlock().run()}>
-        <Code size={16} />
-      </button>
-      <button onClick={() => editor.chain().focus().toggleTaskList().run()}>
-        <CheckSquare size={16} />
-      </button>
+      <button
+  className={`bold-button ${editor.isActive('bold') ? 'active' : ''}`}
+  onClick={() => editor.chain().focus().toggleBold().run()}
+>
+  <Bold size={16} />
+</button>
+
+      <button
+  className={`format-button ${editor.isActive('italic') ? 'active' : ''}`}
+  onClick={() => editor.chain().focus().toggleItalic().run()}
+>
+  <Italic size={16} />
+</button>
+      <button
+  className={`format-button ${editor.isActive('strike') ? 'active' : ''}`}
+  onClick={() => editor.chain().focus().toggleStrike().run()}
+>
+  <Strikethrough size={16} />
+</button>
+      <button
+  className={`format-button ${editor.isActive('bulletList') ? 'active' : ''}`}
+  onClick={() => editor.chain().focus().toggleBulletList().run()}
+>
+  <List size={16} />
+</button>
+
+<button
+  className={`format-button ${editor.isActive('orderedList') ? 'active' : ''}`}
+  onClick={() => editor.chain().focus().toggleOrderedList().run()}
+>
+  <ListOrdered size={16} />
+</button>
+      <button
+  className={`format-button ${editor.isActive('blockquote') ? 'active' : ''}`}
+  onClick={() => editor.chain().focus().toggleBlockquote().run()}
+>
+  <Quote size={16} />
+</button>
+
+<button
+  className={`format-button ${editor.isActive('codeBlock') ? 'active' : ''}`}
+  onClick={() => editor.chain().focus().toggleCodeBlock().run()}
+>
+  <Code size={16} />
+</button>
+
+<button
+  className={`format-button ${editor.isActive('taskList') ? 'active' : ''}`}
+  onClick={() => editor.chain().focus().toggleTaskList().run()}
+>
+  <CheckSquare size={16} />
+</button>
 
       <input
         type="color"
