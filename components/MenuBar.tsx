@@ -86,37 +86,37 @@ export const MenuBar = ({ editor }: { editor: Editor }) => {
       />
 
       <button
-        onClick={() => {
-          const isActive = editor.isActive('highlight', { color: '#fffb91' })
+  className={`format-button ${
+    editor.isActive('highlight') ? 'active' : ''
+  }`}
+  onClick={() => {
+    const isYellowActive = editor.isActive('highlight', { color: '#fffb91' })
 
-          editor
-            .chain()
-            .focus()
-            .setHighlight(isActive ? undefined : { color: '#fffb91' })
-            .run()
-        }}
-      >
-        <Paintbrush size={16} />
-      </button>
+    editor
+      .chain()
+      .focus()
+      .setHighlight(isYellowActive ? undefined : { color: '#fffb91' })
+      .run()
+  }}
+>
+  <Paintbrush size={16} />
+</button>
 
       <select
-        defaultValue="paragraph"
-        onChange={(e) => {
-          const val = e.target.value
-          if (val === 'paragraph') {
-            editor.chain().focus().setParagraph().run()
-          } else {
-            const level = parseInt(val, 10)
-            if ([1, 2, 3].includes(level)) {
-              editor
-                .chain()
-                .focus()
-                .toggleHeading({ level: level as 1 | 2 | 3 })
-                .run()
-            }
-          }
-        }}
-      >
+  className="select-dropdown"
+  defaultValue="paragraph"
+  onChange={(e) => {
+    const val = e.target.value
+    if (val === 'paragraph') {
+      editor.chain().focus().setParagraph().run()
+    } else {
+      const level = parseInt(val, 10)
+      if ([1, 2, 3].includes(level)) {
+        editor.chain().focus().toggleHeading({ level: level as 1 | 2 | 3 }).run()
+      }
+    }
+  }}
+>
         <option value="paragraph">Text Size</option>
         <option value="1">Heading 1</option>
         <option value="2">Heading 2</option>
@@ -124,10 +124,11 @@ export const MenuBar = ({ editor }: { editor: Editor }) => {
       </select>
 
       <select
-        value={selectedFont}
-        onChange={handleFontChange}
-        style={{ fontFamily: selectedFont || 'inherit' }}
-      >
+  className="select-dropdown"
+  value={selectedFont}
+  onChange={handleFontChange}
+  style={{ fontFamily: selectedFont || 'inherit' }}
+>
         <option value="" disabled>
           Select Font
         </option>

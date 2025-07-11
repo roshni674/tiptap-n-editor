@@ -165,3 +165,24 @@ blockquote {
   background-color: #e0e0e0;
   color: #111;
 }
+.select-dropdown {
+  background-color: transparent;
+  border: none;
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  font-size: 1rem;
+  appearance: none;
+}
+
+.select-dropdown:hover {
+  background-color: #efefef;
+}
+
+.select-dropdown:focus {
+  outline: none;
+  background-color: #e0e0e0;
+  color: #111;
+}
