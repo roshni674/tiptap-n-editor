@@ -186,3 +186,6 @@ blockquote {
   background-color: #e0e0e0;
   color: #111;
 }
+.ProseMirror p {
+  margin: 0;
+}
